@@ -36,10 +36,10 @@ export default {
   padding: 11px 16px;
 }
 .v-alert__dismissible {
-  color: rgba(0, 0, 0, 0.3);
+  color: var(--color-default);
 }
 
 .v-alert .theme--dark.v-icon {
-  color: rgba(0, 0, 0, 0.3);
+  color: var(--color-default);
 }
 </style>

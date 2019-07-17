@@ -1,22 +1,27 @@
 <template>
   <v-app dark>
-    <notification :text="notification.text" :color="notification.color"/>
-    <stylizer/>
-    <identity/>
-    <menus/>
-    <navbar v-if="hasNavbar"/>
-    <alert/>
+    <notification :text="notification.text" :color="notification.color" />
+    <stylizer />
+    <identity />
+    <menus />
+    <navbar v-if="hasNavbar" />
+    <alert />
     <v-content :style="getContentStyle()">
-      <router-view/>
+      <router-view />
     </v-content>
-    <version/>
-    <loadingscreen/>
+    <version />
+    <loadingscreen />
   </v-app>
 </template>
 
 <script>
+// Dynamic CSS variables that automatically handle all app themes and changes:
+// https://github.com/Inventsable/starlette
+import starlette from "starlette";
+
+// Utility components
+// https://github.com/Inventsable/cep-vue-cli-plus2x#components
 import identity from "./components/main/identity.vue";
-import stylizer from "./components/main/stylizer.vue";
 import menus from "./components/main/menus.vue";
 import alert from "./components/main/alert";
 import notification from "./components/main/notification.vue";
@@ -29,7 +34,6 @@ export default {
   components: {
     identity,
     notification,
-    stylizer,
     navbar,
     menus,
     version,
@@ -44,7 +48,6 @@ export default {
   data: () => ({
     csInterface: null,
     identity: null,
-    stylizer: null,
     progress: null,
     loadingscreen: null,
     navbar: null,
@@ -138,9 +141,7 @@ export default {
         });
       } else {
         console.log(
-          `${this.identity.root}/src/host/${
-            this.identity.appName
-          } has no valid files or does not exist`
+          `${this.identity.root}/src/host/${this.identity.appName} has no valid files or does not exist`
         );
       }
     },
@@ -171,11 +172,54 @@ export default {
 
 
 <style>
+/* Various helper styles to match host application's theme */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 :root {
   --toolbar-height: 40;
-
   --quad: cubic-bezier(0.48, 0.04, 0.52, 0.96);
   --quart: cubic-bezier(0.76, 0, 0.24, 1);
   --quint: cubic-bezier(0.84, 0, 0.16, 1);
+
+  background-color: var(--color-bg);
+  color: var(--color-default);
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+}
+#app::-webkit-scrollbar {
+  display: block;
+}
+::-webkit-scrollbar {
+  background-color: var(--color-scrollbar);
+  width: var(--scrollbar-width);
+}
+::-webkit-scrollbar-thumb {
+  width: var(--scrollbar-width);
+  background: var(--color-scrollbar-thumb);
+  border-radius: var(--scrollbar-thumb-radius);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scrollbar-thumb-hover);
+}
+::-webkit-scrollbar-resizer {
+  display: none;
+}
+::-webkit-scrollbar-button {
+  height: 0px;
+}
+
+/* Minor changes to vuetify's default component style */
+.theme--dark.application,
+.theme--light.application {
+  background-color: var(--color-bg);
+}
+.theme--dark.v-list {
+  background-color: var(--color-input);
+}
+.theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+  background-color: var(--color-scrollbar);
 }
 </style>

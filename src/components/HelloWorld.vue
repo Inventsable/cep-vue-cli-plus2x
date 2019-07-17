@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <span class="title mt-4" style="color: var(--color-text-default)">{{msg}}</span>
+    <span class="title mt-4" style="color: var(--color-default)">{{msg}}</span>
   </div>
 </template>
 

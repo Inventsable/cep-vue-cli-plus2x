@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Toolbar element existing outside of route -->
-    <progressbar/>
+    <progressbar />
     <div>
       <!-- https://vuetifyjs.com/en/components/toolbars#toolbar -->
       <v-toolbar app card dark class="darkToolbar">
@@ -55,7 +55,7 @@ export default {
 .darkToolbar,
 .theme--dark.v-system-bar,
 .theme--dark.v-toolbar {
-  background-color: var(--color-input-idle);
+  background-color: var(--color-header);
   cursor: default;
 }
 </style>
