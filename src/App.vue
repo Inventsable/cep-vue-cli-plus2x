@@ -77,6 +77,8 @@ export default {
 
     this.loadUniversalScripts();
 
+    starlette.init();
+
     // Vue Router must be manually initialized in CEP:
     this.$router.push({ name: "home" });
   },
