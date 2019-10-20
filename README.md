@@ -1,5 +1,11 @@
 # cep-vue-cli-plus
 
+---
+
+## DEPRECATED 10/20/19 -- Generator now uses [plus3x](https://github.com/Inventsable/cep-vue-cli-plus3x)
+
+---
+
 ## Template used in [generator-cep-vue-cli](https://github.com/Inventsable/generator-cep-vue-cli)
 
 > **NOTE:** This repo should not be `git clone`d directly because it has breaking placeholder values and will not run on it's own.
